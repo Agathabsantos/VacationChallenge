@@ -64,7 +64,7 @@ struct ConversationsView: View {
                     Spacer()
                     
                     Button {
-                        //TODO: Navegar para a tela de contatos
+                        //ContactsView()
                     } label: {
                         Image(systemName: "plus.circle.fill")
                             .font(.system(size: 42))
@@ -84,17 +84,41 @@ struct ConversationsView: View {
                 //lista de conversas
                 ScrollView {
                     VStack {
+                        /*
                         ForEach(conversations.indices, id: \.self) { index in
                             
                             let conversation = conversations[index]
                             
-                            ConversationCard(
-                                avatarImage: conversation.avatarImage,
-                                userName: conversation.userName,
-                                lastMessage: conversation.lastMessage,
-                                time: conversation.time,
-                                unreadMessage: conversation.unreadMessage
-                            )
+                            NavigationLink {
+                                //ChatView(
+                                  //  userName: conversation.userName,
+                                //    avatarImage: conversation.avatarImage
+                                //)
+                                Text("Funcionou!")
+                            } label: {
+                                
+                                ConversationCard(
+                                    avatarImage: conversation.avatarImage,
+                                    userName: conversation.userName,
+                                    lastMessage: conversation.lastMessage,
+                                    time: conversation.time,
+                                    unreadMessage: conversation.unreadMessage
+                                )
+                            }
+                        }*/
+                        
+                        ForEach(conversations.indices, id: \.self) { index in
+                            
+                            let conversation = conversations[index]
+                                
+                                ConversationCard(
+                                    avatarImage: conversation.avatarImage,
+                                    userName: conversation.userName,
+                                    lastMessage: conversation.lastMessage,
+                                    time: conversation.time,
+                                    unreadMessage: conversation.unreadMessage
+                                )
+                            
                         }
                     }
                 }
@@ -115,4 +139,3 @@ struct ConversationsView: View {
 #Preview {
     ConversationsView()
 }
-

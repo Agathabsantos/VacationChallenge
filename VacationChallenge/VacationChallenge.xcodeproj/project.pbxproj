@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		2298D9EB300DAA5D0077CD31 /* ConversationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2298D9EA300DAA410077CD31 /* ConversationCard.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		2298D9CB300D54F80077CD31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -31,7 +27,6 @@
 		2298D9BD300D54F70077CD31 /* VacationChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VacationChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2298D9CA300D54F80077CD31 /* VacationChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VacationChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2298D9D4300D54F80077CD31 /* VacationChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VacationChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2298D9EA300DAA410077CD31 /* ConversationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -80,7 +75,6 @@
 		2298D9B4300D54F70077CD31 = {
 			isa = PBXGroup;
 			children = (
-				2298D9EA300DAA410077CD31 /* ConversationCard.swift */,
 				2298D9BF300D54F70077CD31 /* VacationChallenge */,
 				2298D9CD300D54F80077CD31 /* VacationChallengeTests */,
 				2298D9D7300D54F80077CD31 /* VacationChallengeUITests */,
@@ -242,7 +236,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2298D9EB300DAA5D0077CD31 /* ConversationCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

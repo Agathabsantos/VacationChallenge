@@ -11,7 +11,10 @@ import SwiftUI
 struct VacationChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            ConversationsView()
+            NavigationStack {
+                //ConversationsView()
+            }
         }
     }
 }
+
