@@ -9,11 +9,32 @@ import SwiftUI
 
 @main
 struct VacationChallengeApp: App {
+    
+    @State private var showSplash = true
+    
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                //ConversationsView()
+            
+            if showSplash {
+
+                SplashView()
+                    .onAppear {
+
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            withAnimation {
+                                showSplash = false
+                            }
+                        }
+
+                    }
+
+            } else {
+                NavigationStack {
+                    ConversationsView()
+                }
             }
+            
+            
         }
     }
 }

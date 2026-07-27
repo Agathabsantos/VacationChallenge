@@ -10,8 +10,8 @@ import SwiftUI
 struct MessageBar: View {
     
     let placeholder: String
-    
     @Binding var messageText: String
+    @Environment(\.colorScheme) private var colorScheme
     
     var body : some View {
         HStack {
@@ -31,9 +31,29 @@ struct MessageBar: View {
         }
         .padding(.horizontal, 12)
         .frame(height: 44)
-        .background(Color("SearchBarBackground"))
-        .cornerRadius(30)
-        //.padding(.bottom, 12)
+        .background {
+            RoundedRectangle(cornerRadius: 30, style: .continuous)
+                .fill(
+                    colorScheme == .dark
+                    ? Color.white.opacity(0.10)
+                    : Color.white.opacity(0.92)
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 30, style: .continuous)
+                        .strokeBorder(
+                            colorScheme == .dark
+                            ? Color.white.opacity(0.12)
+                            : Color.black.opacity(0.08),
+                            lineWidth: 0.8
+                        )
+                )
+                .shadow(
+                    color: .black.opacity(0.08),
+                    radius: 8,
+                    x: 0,
+                    y: 2
+                )
+        }
     }
 }
 

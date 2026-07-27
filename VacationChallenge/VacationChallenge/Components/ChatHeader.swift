@@ -19,6 +19,7 @@ struct ChatHeader: View {
         
         //topo da tela
         HStack{
+            
             //botao pra voltar
             Button {
                 dismiss()
@@ -96,7 +97,7 @@ struct ChatHeader: View {
         }
         .padding(.bottom, 16)
         .padding(.horizontal, 24)
-        .background(Color("HeaderConversationColor"))
+        //.background(Color("HeaderConversationColor"))
         
     }
 }

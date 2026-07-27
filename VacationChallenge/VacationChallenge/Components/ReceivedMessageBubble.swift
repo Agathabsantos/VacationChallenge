@@ -44,7 +44,7 @@ struct ReceivedMessageBubble: View {
                     Image(avatarImage)
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 48, height: 48)
+                        .frame(width: 35, height: 35)
                         .clipShape(Circle())
                         .overlay {
                             Circle()
@@ -52,8 +52,8 @@ struct ReceivedMessageBubble: View {
                         }
 
                     Text(senderName)
-                        .font(.system(size: 18, weight: .semibold))
-                        .foregroundStyle(senderColor ?? .blue)
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundColor(senderColor ?? .blue)
 
                     Spacer()
                 }

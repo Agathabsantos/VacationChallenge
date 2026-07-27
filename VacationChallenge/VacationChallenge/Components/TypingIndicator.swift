@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct TypingIndicator: View {
+    
+    let text: String?
+
+    init(
+        text: String? = nil
+    ) {
+        self.text = text
+    }
+    
     var body: some View {
         //alguem digitando
         HStack {
+            
             HStack {
                 Circle()
                     .frame(width: 6, height: 6)
@@ -20,6 +30,11 @@ struct TypingIndicator: View {
                     .opacity(0.75)
                 Circle()
                     .frame(width: 6, height: 6)
+                
+                if let text {
+                    Text(text)
+                }
+                
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 16)
@@ -34,4 +49,6 @@ struct TypingIndicator: View {
 
 #Preview {
     TypingIndicator()
+    
+    TypingIndicator(text: "João está digitando... ")
 }

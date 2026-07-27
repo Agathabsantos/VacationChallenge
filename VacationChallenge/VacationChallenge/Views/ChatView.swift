@@ -14,66 +14,72 @@ struct ChatView: View {
     @State private var messageText = ""
 
     var body: some View {
-        ZStack {
-            Color("BackgroundConversationScreen")
-                .ignoresSafeArea()
-            
-            VStack {
+        ScrollView {
+            VStack (spacing: 12) {
+                DateTag(text: "hoje")
                 
-                //topo da tela
-                ChatHeader(
-                    userName: userName,
-                    avatarImage: avatarImage,
-                    status: "online"
+                ReceivedMessageBubble(
+                    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut ",
+                    hour: "15:36"
                 )
-                                
-                //Aréas das mensagens
-                ScrollView {
-                    VStack (spacing: 12) {
-                        DateTag(text: "hoje")
-                        
-                        ReceivedMessageBubble(
-                            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut ",
-                            hour: "15:36"
-                        )
-                        
-                        SentMessageBubble(
-                            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
-                            hour: "15:45",
-                            isRead: true
-                        )
-                        
-                        ReceivedMessageBubble(
-                            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
-                            hour: "15:36"
-                        )
-                        
-                        SentMessageBubble(
-                            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
-                            hour: "15:45",
-                            isRead: false
-                        )
-                        
-                        TypingIndicator()
-                        
-                    }
-                    .padding(.horizontal, 24)
-                }
-            
-                Spacer()
                 
-                //barra de digitacao
-                MessageInputBar(
-                    messageText: $messageText
+                SentMessageBubble(
+                    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
+                    hour: "15:45",
+                    isRead: true
                 )
-              
+                
+                ReceivedMessageBubble(
+                    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
+                    hour: "15:36"
+                )
+                
+                SentMessageBubble(
+                    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
+                    hour: "15:45",
+                    isRead: false
+                )
+                
+                TypingIndicator()
             }
-            
+            .padding(.horizontal, 24)
+            .padding(.top, 12)
         }
+        .background(Color("BackgroundConversationScreen").ignoresSafeArea())
+        .safeAreaInset(edge: .top, spacing: 0) {
+            ChatHeader(
+                userName: userName,
+                avatarImage: avatarImage,
+                status: "online"
+            )
+            .background {
+                Rectangle()
+                    .fill(.ultraThinMaterial)
+                    .overlay(Color("HeaderConversationColor").opacity(0.4))
+                    .ignoresSafeArea(edges: .top)
+            }
+            .overlay(alignment: .bottom) {
+                Divider()
+            }
+        }
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            MessageInputBar(messageText: $messageText)
+                .background {
+                    Rectangle()
+                        .fill(.ultraThinMaterial)
+                        .overlay(Color("HeaderConversationColor").opacity(0.4))
+                        .ignoresSafeArea(edges: .bottom)
+                }
+                .overlay(alignment: .top) {
+                    Divider()
+                }
+        }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    ChatView(userName: "Agatha Santos", avatarImage: "Avatar1")
+    NavigationStack {
+        ChatView(userName: "Agatha Santos", avatarImage: "Avatar1")
+    }
 }
-

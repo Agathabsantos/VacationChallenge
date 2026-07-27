@@ -14,68 +14,78 @@ struct GroupChatView: View {
     @State private var messageText = ""
     
     var body: some View {
-        ZStack {
-            Color("BackgroundConversationScreen")
-                .ignoresSafeArea()
-            
-            VStack {
-                //topo da tela
-                ChatHeader(
-                    userName: userName,
-                    avatarImage: avatarImage,
-                    status: "2 online"
+        ScrollView {
+            VStack (spacing: 12) {
+                DateTag(text: "09/06/2026")
+                
+                ReceivedMessageBubble(
+                    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ",
+                    hour: "09:30",
+                    avatarImage: "Avatar5",
+                    senderName: "João Pedro",
+                    senderColor: Color("Avatar5")
                 )
                 
-                //Aréas das mensagens
-                ScrollView {
-                    VStack (spacing: 12) {
-                        DateTag(text: "09/06/2026")
-                        
-                         ReceivedMessageBubble(
-                             message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut ",
-                             hour: "09:30",
-                             avatarImage: "Avatar1",
-                             senderName: "João Pedro",
-                             senderColor: Color("MemberBlue")
-                         )
-                        
-                        SentMessageBubble(
-                            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed  ",
-                            hour: "15:45",
-                            isRead: true
-                        )
-                        
-                         ReceivedMessageBubble(
-                             message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut ",
-                             hour: "09:30",
-                             avatarImage: "Avatar1",
-                             senderName: "João Pedro",
-                             senderColor: Color("MemberBlue")
-                         )
-                        
-                        SentMessageBubble(
-                            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed  ",
-                            hour: "15:45",
-                            isRead: false
-                        )
-                        
-                        TypingIndicator()
-                        
-                    }
-                    .padding(.horizontal, 24)
-                }
-                
-                Spacer()
-                
-                //barra de digitacao
-                MessageInputBar(
-                    messageText: $messageText
+                SentMessageBubble(
+                    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed  ",
+                    hour: "15:45",
+                    isRead: true
                 )
+                
+                ReceivedMessageBubble(
+                    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed ",
+                    hour: "09:30",
+                    avatarImage: "Avatar6",
+                    senderName: "Luiza Henrique",
+                    senderColor: Color("Avatar6")
+                )
+                
+                SentMessageBubble(
+                    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed  ",
+                    hour: "15:45",
+                    isRead: false
+                )
+                
+                TypingIndicator(text: "João está digitando... ")
+            }
+            .padding(.horizontal, 24)
+            .padding(.top, 12)
+        }
+        .background(Color("BackgroundConversationScreen").ignoresSafeArea())
+        .safeAreaInset(edge: .top, spacing: 0) {
+            ChatHeader(
+                userName: userName,
+                avatarImage: avatarImage,
+                status: "2 online"
+            )
+            .background {
+                Rectangle()
+                    .fill(.ultraThinMaterial)
+                    .overlay(Color("HeaderConversationColor").opacity(0.4))
+                    .ignoresSafeArea(edges: .top)
+            }
+            .overlay(alignment: .bottom) {
+                Divider()
             }
         }
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            MessageInputBar(messageText: $messageText)
+                .background {
+                    Rectangle()
+                        .fill(.ultraThinMaterial)
+                        .overlay(Color("HeaderConversationColor").opacity(0.4))
+                        .ignoresSafeArea(edges: .bottom)
+                }
+                .overlay(alignment: .top) {
+                    Divider()
+                }
+        }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    GroupChatView(userName: "Grupo de estudos", avatarImage: "GroupAvatar")
+    NavigationStack {
+        GroupChatView(userName: "Grupo de estudos", avatarImage: "GroupAvatar")
+    }
 }

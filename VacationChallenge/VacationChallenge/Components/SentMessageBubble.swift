@@ -40,6 +40,7 @@ struct SentMessageBubble: View {
                     
                 }
                 
+
             }
             .padding(12)
             .background(Color("SentMessageBallomColor"))
