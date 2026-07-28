@@ -32,6 +32,7 @@ struct VacationChallengeApp: App {
                 NavigationStack {
                     ConversationsView()
                 }
+                .ignoresSafeArea(.keyboard, edges: .all)
             }
             
             

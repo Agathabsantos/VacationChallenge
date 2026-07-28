@@ -83,7 +83,20 @@ struct ReceivedMessageBubble: View {
                 .padding(12)
                 .background(Color("ReceiveMessageBallomColor"))
                 .clipShape(RoundedRectangle(cornerRadius: 16))
-
+                .contextMenu {
+                    Button {
+                        // copiar - sem função real por enquanto
+                    } label: {
+                        Label("Copiar", systemImage: "doc.on.doc")
+                    }
+                    
+                    Button(role: .destructive) {
+                        // apagar - sem função real por enquanto
+                    } label: {
+                        Label("Apagar", systemImage: "trash")
+                    }
+                }
+                
                 Spacer(minLength: 60)
             }
         }

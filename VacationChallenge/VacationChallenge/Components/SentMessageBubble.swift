@@ -45,7 +45,26 @@ struct SentMessageBubble: View {
             .padding(12)
             .background(Color("SentMessageBallomColor"))
             .clipShape(RoundedRectangle(cornerRadius: 16))
-
+            .contextMenu {
+                Button {
+                    // copiar - sem função real por enquanto
+                } label: {
+                    Label("Copiar", systemImage: "doc.on.doc")
+                }
+                
+                Button {
+                    // editar - sem função real por enquanto
+                } label: {
+                    Label("Editar", systemImage: "pencil")
+                }
+                
+                Button(role: .destructive) {
+                    // apagar - sem função real por enquanto
+                } label: {
+                    Label("Apagar", systemImage: "trash")
+                }
+            }
+            
         }
     }
 }

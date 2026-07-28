@@ -149,10 +149,11 @@ struct ConversationsView: View {
                     Color("Background")
                 }
             }
-            .ignoresSafeArea(edges: .top)
+            .ignoresSafeArea(.container, edges: .top)
             .animation(.easeInOut(duration: 0.2), value: isScrolled)
         }
         .toolbar(.hidden, for: .navigationBar)
+        
     }
 }
 
