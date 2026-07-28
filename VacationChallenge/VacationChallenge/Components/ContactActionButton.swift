@@ -30,9 +30,6 @@ struct ContactActionButton: View {
                     Image(systemName: systemImage)
                         .font(.system(size: 18, weight: .medium))
                 }
-                /*Image(systemName: systemImage)
-                    .font(.system(size: 18, weight: .medium))*/
-                    
                 
                 Text(title)
                     .font(.system(size: 18, weight: .regular))

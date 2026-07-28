@@ -43,7 +43,6 @@ struct MessageInputBar: View {
          .frame(height: 26)
          .padding(.horizontal, 20)
          .padding(.top, 34)
-         //.background(Color("HeaderConversationColor"))
     }
 }
 

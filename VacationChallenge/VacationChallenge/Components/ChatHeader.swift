@@ -97,7 +97,6 @@ struct ChatHeader: View {
         }
         .padding(.bottom, 16)
         .padding(.horizontal, 24)
-        //.background(Color("HeaderConversationColor"))
         
     }
 }
