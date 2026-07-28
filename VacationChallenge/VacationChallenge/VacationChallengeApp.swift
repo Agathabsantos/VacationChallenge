@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct VacationChallengeApp: App {
     
-    @State private var showSplash = true
+    @State private var showSplash = true //controla a exibição da Splash Screen ao iniciar o app
     
     var body: some Scene {
         WindowGroup {
@@ -19,7 +19,7 @@ struct VacationChallengeApp: App {
 
                 SplashView()
                     .onAppear {
-
+                        // exibe a Splash Screen por 2 segundos antes de navegar para a tela principal do app
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             withAnimation {
                                 showSplash = false
