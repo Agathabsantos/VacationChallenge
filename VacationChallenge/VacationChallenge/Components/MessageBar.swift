@@ -31,6 +31,8 @@ struct MessageBar: View {
         }
         .padding(.horizontal, 12)
         .frame(height: 44)
+        
+        // mantém contraste semelhante ao da SearchBar, modo claro ou escuro
         .background {
             RoundedRectangle(cornerRadius: 30, style: .continuous)
                 .fill(

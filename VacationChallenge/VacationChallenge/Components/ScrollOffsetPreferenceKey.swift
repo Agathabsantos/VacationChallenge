@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// PreferenceKey é usada para compartilhar a posição atual do ScrollView entre diferentes componentes da interface
 struct ScrollOffsetPreferenceKey: PreferenceKey {
     static var defaultValue: CGFloat = 0
     
@@ -15,6 +16,7 @@ struct ScrollOffsetPreferenceKey: PreferenceKey {
     }
 }
 
+// View invisível responsável por capturar a posição do ScrollView utilizando GeometryReader e PreferenceKey
 struct ScrollOffsetReader: View {
     var onChange: (CGFloat) -> Void
     

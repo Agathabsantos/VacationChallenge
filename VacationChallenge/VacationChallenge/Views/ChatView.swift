@@ -11,7 +11,7 @@ struct ChatView: View {
     
     let userName: String
     let avatarImage: String
-    @State private var messageText = ""
+    @State private var messageText = "" // estado da barra de digitação
 
     var body: some View {
         ScrollView {
@@ -46,6 +46,8 @@ struct ChatView: View {
             .padding(.top, 12)
         }
         .background(Color("BackgroundConversationScreen").ignoresSafeArea())
+        
+        // cabeçalho fixo com efeito de translucidez
         .safeAreaInset(edge: .top, spacing: 0) {
             ChatHeader(
                 userName: userName,
@@ -62,6 +64,8 @@ struct ChatView: View {
                 Divider()
             }
         }
+        
+        // rodapé fixo com efeito de translucidez
         .safeAreaInset(edge: .bottom, spacing: 0) {
             MessageInputBar(messageText: $messageText)
                 .background {

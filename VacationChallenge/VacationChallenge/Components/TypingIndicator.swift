@@ -18,7 +18,7 @@ struct TypingIndicator: View {
     }
     
     var body: some View {
-        //alguem digitando
+        // 'simula'alguem digitando
         HStack {
             
             HStack {

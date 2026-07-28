@@ -36,8 +36,11 @@ struct SearchBar: View {
         }
         .padding(.horizontal, 12)
         .frame(height: 44)
+        
+        // altera a aparência da barra de pesquisa quando o cabeçalho recebe o efeito ultraThinMaterial durante a rolagem
         .background {
             RoundedRectangle(cornerRadius: 14)
+                // ajusta  a cor para manter contraste tanto no modo claro quanto no escuro
                 .fill(
                     isScrolled
                     ? (

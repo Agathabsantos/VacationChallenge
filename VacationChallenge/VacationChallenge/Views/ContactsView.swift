@@ -9,8 +9,10 @@ import SwiftUI
 
 struct ContactsView: View {
     
-    @State private var searchText = ""
-    @State private var scrollOffset: CGFloat = 0
+    @State private var searchText = "" // estado da barra de pesquisa
+    @State private var scrollOffset: CGFloat = 0 // armazena a posição atual do ScrollView para detectar quando houve rolagem
+    
+    // ajustes do cabeçalho fixo
     private let headerOverlap: CGFloat = -60
     private let topPadding: CGFloat = 80
     
@@ -58,6 +60,7 @@ struct ContactsView: View {
     var body: some View {
         ZStack(alignment: .trailing) {
             ScrollView {
+                // captura a posição do ScrollView pra aplicar o efeito de ultraThinMaterial no cabeçalho
                 ScrollOffsetReader { offset in
                     scrollOffset = offset
                 }
@@ -103,12 +106,15 @@ struct ContactsView: View {
             }
             .coordinateSpace(name: "SCROLL")
             
+            // alfabeto fixo 
             AlphabetIndex()
                 .padding(.trailing, 10)
                 .padding(.top, 60)
             
         }
         .background(Color("Background").ignoresSafeArea())
+        
+        // cabeçalho fixo que recebe efeito de translucidez após o scroll
         .safeAreaInset(edge: .top, spacing: headerOverlap) {
             VStack(alignment: .leading, spacing: 0) {
 
@@ -179,7 +185,7 @@ struct ContactsView: View {
         }
         
         
-        //footer
+        // rodapé fixo com efeito de translucidez
         .safeAreaInset(edge: .bottom, spacing: 0) {
             VStack(spacing: 10) {
                 //aviso

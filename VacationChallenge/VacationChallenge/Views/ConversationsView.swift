@@ -9,12 +9,14 @@ import SwiftUI
 
 struct ConversationsView: View {
     
-    @State private var searchText = ""
-    @State private var scrollOffset: CGFloat = 0
+    @State private var searchText = "" // estado da barra de pesquisa
+    @State private var scrollOffset: CGFloat = 0 // armazena a posição atual do ScrollView para detectar quando houve rolagem
+    
+    // ajustes do cabeçalho fixo
     private let headerOverlap: CGFloat = -60
     private let topPadding: CGFloat = 80
     
-    private var isScrolled: Bool {
+    private var isScrolled: Bool { // verifica quando a lista já foi rolada
         scrollOffset < 0
     }
     
@@ -64,6 +66,7 @@ struct ConversationsView: View {
     var body: some View {
         ScrollView {
             
+            // captura a posição do ScrollView pra aplicar o efeito de ultraThinMaterial no cabeçalho
             ScrollOffsetReader { offset in
                 scrollOffset = offset
             }
@@ -104,6 +107,8 @@ struct ConversationsView: View {
         }
         .coordinateSpace(name: "SCROLL")
         .background(Color("Background").ignoresSafeArea())
+        
+        // cabeçalho fixo que recebe efeito de translucidez após o scroll
         .safeAreaInset(edge: .top, spacing: headerOverlap) {
             VStack(alignment: .leading, spacing: 0) {
                 //Título da tela e ícone plus
