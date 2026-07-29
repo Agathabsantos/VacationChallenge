@@ -24,7 +24,7 @@ struct GroupChatView: View {
                     hour: "09:30",
                     avatarImage: "Avatar5",
                     senderName: "João Pedro",
-                    senderColor: Color("Avatar5")
+                    senderColor: .blue
                 )
                 
                 SentMessageBubble(
@@ -38,7 +38,7 @@ struct GroupChatView: View {
                     hour: "09:30",
                     avatarImage: "Avatar6",
                     senderName: "Luiza Henrique",
-                    senderColor: Color("Avatar6")
+                    senderColor: .pink
                 )
                 
                 SentMessageBubble(
